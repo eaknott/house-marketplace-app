@@ -31,7 +31,14 @@ function ForgotPassword() {
 
         <main>
           <form onSubmit={onSubmit}>
-            <input type="email" placeholder="Email" id="email" value={email} onChange={onChange} className="emailInput" />
+            <input 
+              type="email" 
+              placeholder="Email" 
+              id="email" 
+              value={email} 
+              onChange={onChange} 
+              className="emailInput" 
+            />
             <Link className="forgotPasswordLink" to="/sign-in">
               Sign In
             </Link>

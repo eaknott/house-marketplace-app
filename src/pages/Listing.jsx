@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import { register } from 'swiper/element/bundle';
 import { getDoc, doc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import { db } from '../firebase.config'
 import Spinner from '../components/Spinner'
 import shareIcon from '../assets/svg/shareIcon.svg'
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
 
 function Listing() {
     const [listing, setListing] = useState(null)
@@ -31,9 +33,6 @@ function Listing() {
        
        fetchListing()
     },[navigate, params.listingId])
-
-    // register Swiper custom elements
-    register();
 
     if (loading) {
         return <Spinner />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { register } from 'swiper/element/bundle';
 import { getDoc, doc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import { db } from '../firebase.config'
@@ -31,13 +32,32 @@ function Listing() {
        fetchListing()
     },[navigate, params.listingId])
 
+    // register Swiper custom elements
+    register();
+
     if (loading) {
         return <Spinner />
     }
 
   return (
     <main>
-        {/* SLIDER */}
+        <swiper-container 
+            slides-per-view="1" 
+            navigation="true" 
+            pagination={{clickable: true}}
+        >
+            {listing.imageUrls.map((url, index) => (
+                <swiper-slide key={index}>
+                    <div 
+                        style={{
+                            background: `url(${listing.imageUrls[index]}) center no-repeat`,
+                            backgroundSize: 'cover',
+                        }} 
+                        className="swiperSlideDiv"
+                    ></div>
+                </swiper-slide>
+            ))}
+        </swiper-container>
 
         <div className="shareIconDiv" onClick={() => {
             navigator.clipboard.writeText(window.location.href) 

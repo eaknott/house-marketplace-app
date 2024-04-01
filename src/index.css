@@ -67,6 +67,7 @@ button {
   font-size: 1.25rem;
   width: 80%;
   margin: 0 auto;
+  margin-bottom: 6.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid'
 
 function EditListing() {
+    // eslint-disable-next-line no-unused-vars
     const [geolocationEnabled, setGeolocationEnabled] = useState(true)
     const [loading, setLoading] = useState(false)
     const [listing, setListing] = useState(false)
@@ -142,6 +143,8 @@ function EditListing() {
                                 break;
                             case 'running':
                                 console.log('Upload is running');
+                                break;
+                            default:
                                 break;
                             }
                     }, 

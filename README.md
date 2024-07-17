@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# House Marketplace App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A digital marketplace for users to view and post listings of house for sale or rent.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [Built with](#built-with)
+- [Usage](#usage)
+  - [Explore page](#explore-page)
+  - [Offers page](#offers-page)
+  - [Profile page](#profile-page)
+  - [Creating listings](#creating-listings)
+  - [Notifications](#notifications)
+- [Issues](#issues)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This house marketplace app enables users to create an account to post and manage house listings for rent or for sale. Listing details can include photos, address, rent or sale price, number of bedrooms, number of bathrooms, parking, and a map location view. Users have the option to contact the landlord and inquire further about a listing. Secure authentication and a database is set up and managed through Firebase and the Firestore NoSQL. Google OAuth is enabled and configured to allow users to register and sign-in using their Google account.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="initialSetup.png" width="250">
 
-### `npm test`
+#### Built with
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React.js
+- Firebase for user authentication
+- Firestore NoSQL for database
+- React Router for multi-page routing
+- React Toastify for real-time notifications
+- Google OAuth for user sign-in and registration
+- a geocoding API for map views of listing locations
+- Swiper for slider to view image carousels
+- deployed to Vercel
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Explore page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The main view of the app takes the user to the Explore page, displaying main images for recommended listings, and options to view listings for rent or listings for sale. The footer displays a navigation bar, allowing the user to navigate between the Explore page, the Offers page, and their Profile, if they are signed in.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="./src/assets/png/explorePage.png" width="250">
 
-### `npm run eject`
+The recommended listings are shown on a slider, with each slide displaying a listing's main photo, along with the listing's title and rent/sale price. Users may tap or click a listing slide to open the individual listing with details and more images.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img src="./src//assets/png/explorePageRecommended.png" width="250">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Offers page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The Offers page includes featured discounted listings, with some main details, such as title, address, rent/sale price, and number of bedrooms and bathrooms. Pagination is enabled to initially show up to 3 listings, with an option to click "Load More" to see additional listings.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img src="./src/assets/png/offersPage.png" width="250">
 
-## Learn More
+Individual listings show more details on each listing, including a map view based on the listing's address. Users may view the listing details and contact the listing's landlord or owner to inquire more.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="./src/assets/png/listingDetailsTop.png" width="200"> <img src="./src/assets/png/listingDetailsBottom.png" width="200">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Profile page
 
-### Code Splitting
+If a user is not signed in, the Profile option navigates the user to the Sign In page. Users may sign in with an email and password, or sign in with their Google/Gmail account. If the user has forgotten their password, they may select "Forgot Password", routing them to a page to input their email address to receive a link to reset their password in Firebase.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="./src/assets/png/signInPage.png" width="250">
 
-### Analyzing the Bundle Size
+To sign in with Google, a Google account modal pops up, allowing the user to select an account to sign in with.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="./src/assets/png/googleOAuthModal.png" width="250">
 
-### Making a Progressive Web App
+Once a user is signed in, the Profile option navigates the user to their profile, showing basic personal information for the account, as well as listings the user has posted. The user has the option to create new listings and manage or edit existing listings.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src="./src/assets/png/profilePage.png" width="250">
 
-### Advanced Configuration
+#### Creating listings
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The form to create listings allows the user to quickly and easily fill in details about the listing, including whether it is for sale or for rent, the name/title for the listing, the number of bedrooms and bathrooms, whether there is reserved parking, whether it is furnished, the address, whether it has a special discount offer, the regular price, and up to 6 images.
 
-### Deployment
+<img src="./src/assets/png/createListingForm.png" width="200"> <img src="./src/assets/png/createListingForm2.png" width="200">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Notifications
 
-### `npm run build` fails to minify
+React Toastify is enabled and used to notify users of various alerts based on actions such as signing up, Google OAuth success or failure, listing creation, and success or failure of contacting a listing's landlord.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src="./src/assets/png/toastifyAlert1.png" width="200"> <img src="./src/assets/png/toastifyAlert2.png" width="200">
+
+## Issues
+
+- [ ] Page for registration of new users is missing from the Sign-in/Profile page
+
+## Acknowledgments
+
+Author: [Emily Knott](www.emilyknott.com)
+
+This project was built as part of [Traversy Media](https://github.com/bradtraversy)'s comprehensive React course: [React Front to Back Course](https://www.traversymedia.com/Modern-React-Front-To-Back-Course)

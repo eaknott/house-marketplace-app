@@ -1,6 +1,6 @@
 # House Marketplace App
 
-A digital marketplace for users to view and post listings of house for sale or rent.
+A digital marketplace for users to view and post listings of houses for sale or rent.
 
 ## Table of contents
 
@@ -18,8 +18,6 @@ A digital marketplace for users to view and post listings of house for sale or r
 ## Overview
 
 This house marketplace app enables users to create an account to post and manage house listings for rent or for sale. Listing details can include photos, address, rent or sale price, number of bedrooms, number of bathrooms, parking, and a map location view. Users have the option to contact the landlord and inquire further about a listing. Secure authentication and a database is set up and managed through Firebase and the Firestore NoSQL. Google OAuth is enabled and configured to allow users to register and sign-in using their Google account.
-
-<img src="initialSetup.png" width="250">
 
 #### Built with
 

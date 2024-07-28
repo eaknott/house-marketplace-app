@@ -85,6 +85,6 @@ React Toastify is enabled and used to notify users of various alerts based on ac
 
 ## Acknowledgments
 
-Author: [Emily Knott](www.emilyknott.com)
+Author: [Emily Knott](https://www.emilyknott.com)
 
 This project was built as part of [Traversy Media](https://github.com/bradtraversy)'s comprehensive React course: [React Front to Back Course](https://www.traversymedia.com/Modern-React-Front-To-Back-Course)
